@@ -13,6 +13,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code into the container at /app
 COPY . /app
 
+# Ensure anshu.jpeg is copied to the desired location in the container
+COPY anshu.jpeg /app/templates/
+
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 
@@ -21,4 +24,3 @@ ENV FLASK_APP=app.py
 
 # Run the application using Gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
-
