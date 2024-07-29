@@ -1,9 +1,22 @@
+## Install nginx ingress controller 
+[link](https://kubernetes.github.io/ingress-nginx/deploy/#azure)
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.4/deploy/static/provider/cloud/deploy.yaml
+```
+
+====================================================================================================================================================================================
+
+
 ## Install cloudnative PG
 [link](https://cloudnative-pg.io/documentation/current/installation_upgrade/)
 ```
 kubectl apply --server-side -f \
   https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.23/releases/cnpg-1.23.1.yaml
 ```
+
+====================================================================================================================================================================================
+
+
 ## create Database cluster
 `kubectl apply -f postgres-cluster.yaml`
 ## Create secret 
@@ -25,35 +38,12 @@ CREATE TABLE goals (
 "
 ```
 
+====================================================================================================================================================================================
 
-===============================================
+
 ## Install CERT MANAGER
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.5/cert-manager.yaml
 
-## Install nginx ingress controller 
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.4/deploy/static/provider/cloud/deploy.yaml
 
 ## Install Metrics server
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
-
-===============================================
-
-# GithubActions and ArgoCD
-
-## Steps 
-Create .github/workflows folder 
-Create a file build-push-image.yaml 
-Create a jinja template app/tmpl/deploy.j2
-Create deployment file - /app/deploy/deploy.yaml
-Create GitHub Actions secret - DOCKERHUB_USERNAME and DOCKERHUB_PASSWORD
-Make sure your actions have push access as well. 
-
-
-## Install ArgoCd
-```
-kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
-kubectl get secret -n argocd argocd-initial-admin-secret -oyaml
-
-```
