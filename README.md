@@ -4,6 +4,18 @@
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.4/deploy/static/provider/cloud/deploy.yaml
 ```
 
+## Install CERT MANAGER
+[link](https://cert-manager.io/docs/installation/kubectl/)
+```
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.5/cert-manager.yaml
+```
+
+## Install Metrics server
+[link](https://github.com/kubernetes-sigs/metrics-server)
+```
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+```
+
 ************************************************************************************************************************************************************************************
 
 
@@ -35,13 +47,3 @@ CREATE TABLE goals (
 );
 "
 ```
-
-************************************************************************************************************************************************************************************
-
-
-## Install CERT MANAGER
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.5/cert-manager.yaml
-
-
-## Install Metrics server
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
