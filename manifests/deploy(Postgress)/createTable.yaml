@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-goals-table
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+      - name: psql
+        image: postgres:latest
+        env:
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-postgresql-credentials
+              key: password
+        - name: PGUSER
+          valueFrom:
+            secretKeyRef:
+              name: my-postgresql-credentials
+              key: username
+        - name: PGDATABASE
+          value: goals_database
+        command: ["psql"]
+        args: ["-h", "my-postgresql", "-c", "CREATE TABLE IF NOT EXISTS goals (id SERIAL PRIMARY KEY, goal_name VARCHAR(255) NOT NULL);"]
+      restartPolicy: OnFailure
