@@ -36,7 +36,7 @@ kubectl apply -f postgres-cluster.yaml
 
 ## Exec into pod to create table
 ```
-kubectl exec -it my-postgresql-1 --sh
+kubectl exec -it my-postgresql-1 -- /bin/sh
 ```
 
 ```
