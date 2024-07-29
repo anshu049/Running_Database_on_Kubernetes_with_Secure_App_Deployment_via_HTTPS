@@ -37,7 +37,7 @@ kubectl apply -f postgres-cluster.yaml
 ## Exec into pod to create table
 
 ```
-kubectl exec -it my-postgresql-1 -- psql -U postgres -c "ALTER USER goals_user WITH PASSWORD 'new_password';"
+kubectl exec -it my-postgresql-1 -- psql -U postgres -c "ALTER USER goal WITH PASSWORD 'completed';"
 kubectl port-forward my-postgresql-1 5432:5432
 PGPASSWORD='new_password' psql -h 127.0.0.1 -U goals_user -d goals_database -c "
 
