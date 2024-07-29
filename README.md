@@ -18,10 +18,8 @@ kubectl apply --server-side -f \
 
 
 ## create Database cluster
-`kubectl apply -f postgres-cluster.yaml`
-## Create secret 
 ```
-kubectl create secret generic my-postgresql-credentials --from-literal=password='new_password'  --from-literal=username='goals_user'  --dry-run=client -o yaml | kubectl apply -f -
+kubectl apply -f postgres-cluster.yaml
 ```
 
 ## Exec into pod to create table
