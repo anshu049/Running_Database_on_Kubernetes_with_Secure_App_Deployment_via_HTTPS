@@ -11,15 +11,9 @@ spec:
         image: postgres:latest
         env:
         - name: PGPASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: my-postgresql-credentials
-              key: password
+          value: 'new_password'
         - name: PGUSER
-          valueFrom:
-            secretKeyRef:
-              name: my-postgresql-credentials
-              key: username
+          value: goals_user
         - name: PGDATABASE
           value: goals_database
         command: ["sh", "-c"]
