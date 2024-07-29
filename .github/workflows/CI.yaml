@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - app.py
+      - 'templates/**'
 
 jobs:
   build-and-push:
