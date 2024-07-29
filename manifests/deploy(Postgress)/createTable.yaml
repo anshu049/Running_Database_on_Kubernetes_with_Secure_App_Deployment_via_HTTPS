@@ -22,6 +22,6 @@ spec:
               key: username
         - name: PGDATABASE
           value: goals_database
-        command: ["psql"]
-        args: ["-h", "my-postgresql", "-c", "CREATE TABLE IF NOT EXISTS goals (id SERIAL PRIMARY KEY, goal_name VARCHAR(255) NOT NULL);"]
+        command: ["sh", "-c"]
+        args: ["psql -h my-postgresql-rw -U $PGUSER -d $PGDATABASE -c \"CREATE TABLE IF NOT EXISTS goals (id SERIAL PRIMARY KEY, goal_name VARCHAR(255) NOT NULL);\""]
       restartPolicy: OnFailure
