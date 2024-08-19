@@ -1,3 +1,6 @@
+
+![Screenshot 2024-07-30 at 6 25 34 AM](https://github.com/user-attachments/assets/615c0e6b-c4c2-499d-ae8e-0542af2becea)
+
 ## Install nginx ingress controller 
 [link](https://kubernetes.github.io/ingress-nginx/deploy/#azure)
 ```
